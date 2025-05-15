@@ -27,7 +27,7 @@ function showQuestion() {
     let butt = document.createElement("button");
     butt.textContent = option;
     butt.className = "option";
-    butt.onclick = checkAnswer(index);
+    butt.addEventListener("click", () => checkAnswer(index));
     optionsContainer.appendChild(butt);
   // TODO:
   // 1. Create a button element
@@ -76,8 +76,6 @@ nextBtn.addEventListener("click", () => {
   {
     showResult();
   }
-
-
 });
 
 
