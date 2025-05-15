@@ -26,16 +26,16 @@ function showQuestion() {
   q.options.forEach((option, index) => {
     let butt = document.createElement("button");
     butt.textContent = option;
-    butt.setAttribute('class', 'option');
+    butt.className = "option";
     butt.onclick = checkAnswer(index);
-    document.getElementById("options").appendChild(butt);
+    optionsContainer.appendChild(butt);
   // TODO:
   // 1. Create a button element
   // 2. Set the button's text to the option
   // 3. Add a class to style it
   // 4. Add an onclick event that calls checkAnswer(index)
   // 5. Add the button to the optionsContainer
-});
+  });
 }
 
 function checkAnswer(selectedIndex) {
@@ -56,6 +56,10 @@ function clearOptions() {
   // HINT
   // 1. Clear the contents of the options container
   // 2. Disable the Next button so users can't skip ahead
+  Array.from(optionsContainer.children).forEach((btn) => {
+    btn.remove();
+  });
+  nextBtn.disabled = true;
 }
 
 nextBtn.addEventListener("click", () => {
@@ -64,6 +68,16 @@ nextBtn.addEventListener("click", () => {
   // 1. Move to the next question by increasing the question index
   // 2. If there are questions left, show the next one
   // 3. Otherwise, call a function to show the final result
+  if (currentQuestionIndex != 30)
+  {
+    showQuestion();
+  }
+  else
+  {
+    showResult();
+  }
+
+
 });
 
 
