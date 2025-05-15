@@ -40,7 +40,7 @@
 <body>
 
   <h1>Quote generator homework</h1>
-  <h2>Create by Gift sensei </h2> <!-- Change XXXX to your name and student ID-->
+  <h2>Create by MELERO Z125029 </h2> <!-- Change XXXX to your name and student ID-->
 
   <div id="quoteBox">
     <p id="quote">Click the button to get a quote!</p>
@@ -59,11 +59,23 @@
     const newQuoteBtn = document.getElementById("newQuoteBtn");
 
     function getQuote() {
-     
-      //INPUT YOUR CODE HERE
-      //HINT: Use fetch() to get quote from "quotes.json"
+    
+      fetch("quotes.json").
+      then(response => response.json())
+      then((data) => {
+        let rand = Math.random() * 10;
+        let quote = "";
+        let author = "";
 
+        rand = Math.floor(rand);
 
+        quote = data[rand].q;
+        author = data[rand].a;
+
+        quoteText.innerHTML = `<p>${quote}</p>`;
+        authorText.innerHTML = `<p>${author}</p>`;
+      }
+      )
     }
     newQuoteBtn.addEventListener("click", getQuote);
     getQuote(); // Load a quote on page load
