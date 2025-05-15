@@ -24,6 +24,11 @@ function showQuestion() {
    //INPUT YOUR CODE HERE
    //HINT: Loop through each option for the current question
   q.options.forEach((option, index) => {
+    let butt = document.createElement("button");
+    butt.textContent = option;
+    butt.setAttribute('class', 'option');
+    butt.onclick = checkAnswer(index);
+    document.getElementById("options").appendChild(butt);
   // TODO:
   // 1. Create a button element
   // 2. Set the button's text to the option
