@@ -60,14 +60,12 @@
 
     function getQuote() {
     
-      fetch("quotes.json").
-      then(response => response.json())
-      then((data) => {
-        let rand = Math.random() * 10;
+      fetch("quotes.json")
+      .then(response => response.json())
+      .then((data) => {
+        let rand = Math.floor(Math.random() * 10);
         let quote = "";
         let author = "";
-
-        rand = Math.floor(rand);
 
         quote = data[rand].q;
         author = data[rand].a;
