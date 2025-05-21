@@ -70,6 +70,7 @@ nextBtn.addEventListener("click", () => {
   // 3. Otherwise, call a function to show the final result
   if (currentQuestionIndex != 30)
   {
+    currentQuestionIndex += 1;
     showQuestion();
   }
   else
