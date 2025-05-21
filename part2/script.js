@@ -68,9 +68,9 @@ nextBtn.addEventListener("click", () => {
   // 1. Move to the next question by increasing the question index
   // 2. If there are questions left, show the next one
   // 3. Otherwise, call a function to show the final result
-  if (currentQuestionIndex != 29)
+  currentQuestionIndex++;
+  if (currentQuestionIndex != 30)
   {
-    currentQuestionIndex += 1;
     showQuestion();
   }
   else
